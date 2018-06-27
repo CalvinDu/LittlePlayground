@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
+using Console = System.Console;
 
 namespace Excel2XML
 {
@@ -35,10 +36,19 @@ namespace Excel2XML
 
                         foreach (var row in rows.Skip(1))
                         {
-                            var key = Excel2XmlHelper.GetValueOfCell(row.Elements<Cell>().ElementAt(0),document);
-                            var value = Excel2XmlHelper.GetValueOfCell(row.Elements<Cell>().ElementAt(1),document);
+                            var keyCell = row.Elements<Cell>().ElementAt(0);
+                            var valueCell = row.Elements<Cell>().ElementAt(1);
+                            var key= Excel2XmlHelper.GetValueOfCell(keyCell, document);
+                            var value= Excel2XmlHelper.GetValueOfCell(valueCell, document);
+                            try
+                            {
+                                dictionary.Add(key, value);
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine($"Error: Row {row.GetAttribute("r", String.Empty).Value}, \"{key}, {value}\" of Sheet \"{sheetName}\"");
+                            }
 
-                            dictionary.Add(key, value);
                         }
 
                         dictionary.SaveToXml(sheetName);
