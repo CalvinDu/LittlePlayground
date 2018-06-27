@@ -1,15 +1,10 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
-using DocumentFormat.OpenXml.Drawing.Charts;
-using DocumentFormat.OpenXml.EMMA;
-using DocumentFormat.OpenXml.Packaging;
-using DocumentFormat.OpenXml.Spreadsheet;
-using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace Excel2XML
 {
@@ -22,6 +17,7 @@ namespace Excel2XML
             var files = directory.GetFiles("*.xlsx",SearchOption.TopDirectoryOnly);
             foreach (var file in files)
             {
+                Console.WriteLine($"{file.ParseCulture()}");
                 XmlDocument xml = new XmlDocument();
                 XmlElement localizationDictionary = (XmlElement) xml.AppendChild(xml.CreateElement("localizationDictionary"));
                 localizationDictionary.SetAttribute("culture","en");
@@ -32,7 +28,7 @@ namespace Excel2XML
                 using (var document = SpreadsheetDocument.Open(file.FullName, false))
                 {
                     var sheets = document.WorkbookPart.Workbook.Sheets.ToList();
-                    if (sheets.Count() ==0)
+                    if (!sheets.Any())
                     {
                         Console.WriteLine("No File!");
                         break;
@@ -54,7 +50,7 @@ namespace Excel2XML
 
                         var rows = sheetData.Descendants<Row>();
                         
-                        if (rows.Count() == 0)
+                        if (!rows.Any())
                         {
                             break;
                         }
@@ -100,6 +96,9 @@ namespace Excel2XML
                 return cellValue;
             }
         }
+
+       
+
+
     }
-    
 }
