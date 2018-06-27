@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Xml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace Excel2XML
 {
     static class Excel2XmlHelper
     {
-        public static string ParseCulture(this FileInfo file)
+        public static string ParseCulture(this string sheetName)
         {
-                var pattern = new Regex(@"(?:[^ \n-]+-){1}(.*)(?:\.[^.]*$)");
+                var pattern = new Regex(@"(?:[^ \n-]+-){1}(.*)$");
                 ;
-                var match = pattern.Match(file.Name);
-            if (match.Success)
-            {
-                return match.Groups[1].Value;
-            }
-                return "en";
+                var match = pattern.Match(sheetName);
+            return match.Success ? match.Groups[1].Value : "en";
         }
 
-        private static void SaveToXml(this IDictionary<string, string> dictionary, FileInfo file)
+        public static void SaveToXml(this IDictionary<string, string> dictionary, string fileName)
         {
             var doc = new XmlDocument();
             var xmlDeclaration = doc.CreateXmlDeclaration("1.0", "utf-8", null);
@@ -28,7 +26,7 @@ namespace Excel2XML
             doc.InsertBefore(xmlDeclaration, root);
 
             var localizationDictionary = doc.CreateElement("localizationDictionary");
-            localizationDictionary.SetAttribute("culture", file.ParseCulture());
+            localizationDictionary.SetAttribute("culture", fileName.ParseCulture());
             doc.AppendChild(localizationDictionary);
 
             var texts = doc.CreateElement("texts");
@@ -42,7 +40,28 @@ namespace Excel2XML
                 texts.AppendChild(text);
             }
 
-            doc.Save($"{file.Name}.xml");
+            doc.Save($"{fileName}.xml");
+        }
+
+        public static string GetValueOfCell(Cell cell,SpreadsheetDocument spreadSheetDocument)
+        {
+            var sharedString = spreadSheetDocument.WorkbookPart.SharedStringTablePart;
+            if (cell.CellValue == null)
+            {
+                return string.Empty;
+            }
+
+
+            var cellValue = cell.CellValue.InnerText;
+
+            if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
+            {
+                return sharedString.SharedStringTable.ChildElements[int.Parse(cellValue)].InnerText;
+            }
+            else
+            {
+                return cellValue;
+            }
         }
     }
 }
