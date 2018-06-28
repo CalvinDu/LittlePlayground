@@ -39,8 +39,9 @@ namespace Excel2XML
                 text.InnerText = pair.Value;
                 texts.AppendChild(text);
             }
-
-            doc.Save($"{fileName}.xml");
+            var directory = new DirectoryInfo(Directory.GetCurrentDirectory());
+            directory.CreateSubdirectory("XMLs");
+            doc.Save($"XMLs/{fileName}.xml");
         }
 
         public static string GetValueOfCell(Cell cell,SpreadsheetDocument spreadSheetDocument)

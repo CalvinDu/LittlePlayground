@@ -22,7 +22,7 @@ namespace AutoMapper
         {
             return $"name={name},number={number}";
         }
-        protected override void Configure()
+        protected void Configure()
         {
             AddMemberConfiguration().AddName<PrePostfixName>(
                     _ => _.AddStrings(p => p.DestinationPostfixes, "DTO"));

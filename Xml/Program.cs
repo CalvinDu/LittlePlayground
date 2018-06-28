@@ -12,12 +12,12 @@ namespace Xml
         static void Main(string[] args)
         {
             var doc = new XmlDocument();
-            var xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+            var xmlDeclaration = doc.CreateXmlDeclaration("1.0", "utf-8", null);
             var root = doc.DocumentElement;
 
             doc.InsertBefore(xmlDeclaration, root);
 
-            var localizationDictionary = doc.CreateElement("locallizationDictionary");
+            var localizationDictionary = doc.CreateElement("localizationDictionary");
             localizationDictionary.SetAttribute("culture", "en");
             doc.AppendChild(localizationDictionary);
 
