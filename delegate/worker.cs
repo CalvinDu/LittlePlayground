@@ -5,9 +5,16 @@ using System.Text;
 namespace Delegate
 {
     public delegate void WorkPerformedHandler( int hours ); 
-    public class worker
+    public class Worker
     {
         public event WorkPerformedHandler Workperformed;
+        public event EventHandler WorkPerformedHandler2;
+        public Worker()
+        {
+            Workperformed += WorkPerformed1;
+            WorkPerformedHandler2 += WorkPerformed2;
+        }
+
         public virtual void DoWork(int hours)
         {
             OnWorkPerformed(hours);
@@ -20,15 +27,17 @@ namespace Delegate
             {
                 del(hours);
             }
+
+            WorkPerformedHandler2?.Invoke(this, EventArgs.Empty);
         }
-        static void WorkPerformed1(int hours)
+        public  void WorkPerformed1(int hours)
         {
-            Console.WriteLine($" WorkPerformed1 did {hours} hours!");
+            Console.WriteLine($" WorkPerformed1 worked {hours} hours!");
         }
 
-        static void WorkPerformed2(int hours)
+        public  void WorkPerformed2(object sender, EventArgs e)
         {
-            Console.WriteLine($" WorkPerformed2 did {hours} hours!");
+            Console.WriteLine($" WorkPerformed2 {sender.GetType()} worked {e.ToString()} hours!");
         }
     }
 
