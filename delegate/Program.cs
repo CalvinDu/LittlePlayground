@@ -7,7 +7,7 @@ namespace Delegate
         static void Main(string[] args)
         {
 
-            var worker = new worker();
+           var worker = new Worker();
             worker.DoWork(2);
             Console.ReadKey();
         }

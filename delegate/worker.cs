@@ -5,17 +5,19 @@ using System.Text;
 namespace Delegate
 {
     public delegate void WorkPerformedHandler( int hours ); 
-    public class worker
+    public class Worker
     {
-        public WorkPerformedHandler Workperformed;
+        public event WorkPerformedHandler Workperformed;
+        public event EventHandler WorkPerformedHandler2;
+        public Worker()
+        {
+            Workperformed += WorkPerformed1;
+            WorkPerformedHandler2 += WorkPerformed2;
+        }
+
         public virtual void DoWork(int hours)
         {
-            Func<int,int> work = WorkPerformed2;
-            work(hours);
-            Action<int> work2 = WorkPerformed1;
-            work2(hours);
             OnWorkPerformed(hours);
-
         }
 
         protected virtual void OnWorkPerformed( int hours )
@@ -25,16 +27,17 @@ namespace Delegate
             {
                 del(hours);
             }
+
+            WorkPerformedHandler2?.Invoke(this, EventArgs.Empty);
         }
-        static void WorkPerformed1(int hours)
+        public  void WorkPerformed1(int hours)
         {
-            Console.WriteLine($" WorkPerformed1 did {hours} hours!");
+            Console.WriteLine($" WorkPerformed1 worked {hours} hours!");
         }
 
-        static int WorkPerformed2(int hours)
+        public  void WorkPerformed2(object sender, EventArgs e)
         {
-            Console.WriteLine($" WorkPerformed2 did {hours} hours!");
-            return hours;
+            Console.WriteLine($" WorkPerformed2 {sender.GetType()} worked {e.ToString()} hours!");
         }
     }
 
