@@ -16,7 +16,7 @@ namespace LearnDotNet
             dic.Add(new SomeObject() { num1 = 1, num2 = 2 }, "first pair");
             //dic.Add(new SomeObject() { num1 = 0, num2 = 3 }, "second pair");
             //dic.Add(new SomeObject() { num1 = 1, num2 = 3 }, "third pair");
-            //dic.Add(new SomeObject() { num1 = 1, num2 = 2 }, "fourth pair");
+            dic.Add(new SomeObject() { num1 = 1, num2 = 2 }, "fourth pair");
             //foreach (var pair in dic)
             //{
             //    Console.WriteLine($"{pair.Value} : {pair.Key}");

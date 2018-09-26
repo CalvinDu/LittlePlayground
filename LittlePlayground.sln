@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IO", "IO\IO.csproj", "{76AC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnDotNet", "LearnDotNet\LearnDotNet.csproj", "{65712CBD-DE54-4EC3-9E3D-B1C81BF538D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLI-App", "CLI-App\CLI-App.csproj", "{EED1050F-1D21-4F46-BCD7-37C19B36F2A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{65712CBD-DE54-4EC3-9E3D-B1C81BF538D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65712CBD-DE54-4EC3-9E3D-B1C81BF538D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65712CBD-DE54-4EC3-9E3D-B1C81BF538D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EED1050F-1D21-4F46-BCD7-37C19B36F2A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EED1050F-1D21-4F46-BCD7-37C19B36F2A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EED1050F-1D21-4F46-BCD7-37C19B36F2A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EED1050F-1D21-4F46-BCD7-37C19B36F2A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
