@@ -8,7 +8,6 @@ namespace IO
     {
         public static void WriteFile()
         {
-            var 
         }
     }
 }
