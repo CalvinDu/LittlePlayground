@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnDotNet", "LearnDotNet\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLI-App", "CLI-App\CLI-App.csproj", "{EED1050F-1D21-4F46-BCD7-37C19B36F2A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF", "WCF\WCF.csproj", "{227F0FDF-4B92-4575-A150-FF6F831F7875}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{EED1050F-1D21-4F46-BCD7-37C19B36F2A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EED1050F-1D21-4F46-BCD7-37C19B36F2A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EED1050F-1D21-4F46-BCD7-37C19B36F2A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{227F0FDF-4B92-4575-A150-FF6F831F7875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{227F0FDF-4B92-4575-A150-FF6F831F7875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{227F0FDF-4B92-4575-A150-FF6F831F7875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{227F0FDF-4B92-4575-A150-FF6F831F7875}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

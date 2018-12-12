@@ -10,7 +10,8 @@ namespace LearnDotNet
     {
         static void Main(string[] args)
         {
-            Dic.Play();
+            //Guid.Go();
+            Operator.Go();
             Console.ReadKey();
         }
     }
