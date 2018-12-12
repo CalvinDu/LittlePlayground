@@ -13,6 +13,15 @@ namespace PlayThreading
 
         static void Main(string[] args)
         {
+            var stack = new Queue<int>();
+            var str = "hello";
+            var charA=str.ToCharArray();
+            HashSet<char> set = new HashSet<char>(charA);
+            set.
+            foreach (var item in set)
+            {
+                Console.WriteLine($"{item}");
+            }
             //WriteFile();
             ReadFile();
             Console.WriteLine("finished");
