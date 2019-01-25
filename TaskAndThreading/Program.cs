@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TaskAndThreading;
 
 namespace TaskTest
 {
@@ -14,22 +15,22 @@ namespace TaskTest
         public static readonly Object Lock = new Object();
         static void Main(string[] args)
         {
-            Thread[] threads = new Thread[10];
-            Account acc = new Account(1000);
-            for (int i = 0; i < 10; i++)
-            {
-                Thread t = new Thread(new ThreadStart(acc.DoTransactions));
-                threads[i] = t;
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                threads[i].Start();
-            }
+            //Thread[] threads = new Thread[10];
+            //Account acc = new Account(1000);
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Thread t = new Thread(new ThreadStart(acc.DoTransactions));
+            //    threads[i] = t;
+            //}
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    threads[i].Start();
+            //}
 
-            //block main thread until all other threads have ran to completion.
-            foreach (var t in threads)
-                t.Join();
-
+            ////block main thread until all other threads have ran to completion.
+            //foreach (var t in threads)
+            //    t.Join();
+            AsyncTask.Go();
             Console.ReadKey();
         }
     }
