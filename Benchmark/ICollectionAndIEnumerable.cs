@@ -14,11 +14,8 @@ namespace Benchmark
         private ICollection<int> collection;
         private List<int> list = new List<int>();
 
-        [Params(100000)]
-        public int N;
-
         [Params(1000)]
-        public int C;
+        public int N;
 
         [GlobalSetup]
         public void Setup()
@@ -32,23 +29,27 @@ namespace Benchmark
         }
 
         [Benchmark]
-        public void CountEnumerable()
+        public bool EnumerableAny1()
         {
-            int count;
-            for (var i = 0; i < C; i++)
-            {
-                count = enumerable.Count();
-            }
+            return enumerable.Any();
         }
 
         [Benchmark]
-        public void CountCollection()
+        public bool EnumerableAny2()
         {
-            int count;
-            for (var i = 0; i < C; i++)
-            {
-                count = collection.Count;
-            }
+            return enumerable.Count() != 0;
+        }
+
+        [Benchmark]
+        public bool CollectionAny2()
+        {
+            return collection.Count != 0;
+        }
+
+        [Benchmark]
+        public bool CollectionAny1()
+        {
+            return collection.Any();
         }
     }
 }
