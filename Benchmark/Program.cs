@@ -11,10 +11,8 @@ namespace Benchmark
     {
         public static void Main(string[] args)
         {
-            //var summary = BenchmarkRunner.Run<ICollectionAndIEnumerable>();
+            var summary = BenchmarkRunner.Run<ICollectionAndIEnumerable>();
             //var json = BenchmarkRunner.Run<JsonSerializer>();
-            var test = new JsonSerializer();
-            test.JsonDeserialize2();
             Console.ReadKey();
         }
     }

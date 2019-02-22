@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayThreading", "PlayThread
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark", "Benchmark\Benchmark.csproj", "{BF8456D5-CA25-45FC-89E9-4F8F7F602C36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq", "RabbitMq\RabbitMq.csproj", "{B587BE4B-AFC1-4E93-AA53-33015B39E0C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{BF8456D5-CA25-45FC-89E9-4F8F7F602C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF8456D5-CA25-45FC-89E9-4F8F7F602C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF8456D5-CA25-45FC-89E9-4F8F7F602C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B587BE4B-AFC1-4E93-AA53-33015B39E0C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B587BE4B-AFC1-4E93-AA53-33015B39E0C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B587BE4B-AFC1-4E93-AA53-33015B39E0C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B587BE4B-AFC1-4E93-AA53-33015B39E0C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

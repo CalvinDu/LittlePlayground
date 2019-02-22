@@ -11,7 +11,9 @@ namespace LearnDotNet
         static void Main(string[] args)
         {
             //Guid.Go();
-            Operator.Go();
+            //Operator.Go();
+            //Equality.Go();
+            DefaultValue.Go();
             Console.ReadKey();
         }
     }

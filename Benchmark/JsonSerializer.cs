@@ -41,11 +41,11 @@ namespace Benchmark
         //必须使用xml
         public void JsonDeserialize2()
         {
-            var js = new DataContractJsonSerializer(typeof(IEnumerable<QrCode>));
-            var fs = new FileStream(path, FileMode.Open, FileAccess.Read);
-            var result = (IEnumerable<QrCode>)js.ReadObject(fs);
-            fs.Dispose();
-            fs.Close();
+            //var js = new DataContractJsonSerializer(typeof(IEnumerable<QrCode>));
+            //var fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+            //var result = (IEnumerable<QrCode>)js.ReadObject(fs);
+            //fs.Dispose();
+            //fs.Close();
         }
 
         [Benchmark]

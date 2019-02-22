@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace LearnDotNet
 {
-    public class Operator
+    public class DefaultValue
     {
-        private static int? someInt;
-        public static int? GetSomeInt => someInt ?? (someInt = 1);
-
         public static void Go()
         {
-            Console.WriteLine($"{nameof(Operator)}: someInt = {GetSomeInt}");
+            Console.WriteLine(default(int));
+            Console.WriteLine(default(int?));
         }
     }
 }

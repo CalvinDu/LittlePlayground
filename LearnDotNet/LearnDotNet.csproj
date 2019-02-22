@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultValue.cs" />
     <Compile Include="Dic.cs" />
+    <Compile Include="Equality.cs" />
     <Compile Include="Guid.cs" />
     <Compile Include="Operator.cs" />
     <Compile Include="Program.cs" />
