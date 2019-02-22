@@ -12,6 +12,7 @@ namespace LearnDotNet
         {
             Console.WriteLine(default(int));
             Console.WriteLine(default(int?));
+            Console.WriteLine(default(List<int>));            
         }
     }
 }
